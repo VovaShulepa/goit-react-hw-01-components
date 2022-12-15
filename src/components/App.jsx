@@ -1,20 +1,20 @@
+import Section from './Section/Section';
+
 import user from '../data/user.json';
 import Profile from './Profile/Profile';
+
 import data from '../data/data.json';
 import Statistics from './Statistics/Statistics';
 
+import friends from '../data/friends.json';
+import FriendList from './FriendList/FriendList';
+
+import transactions from '../data/transactions.json';
+import TransactionHistory from './TransactionHistory/TransactionHistory';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#392395',
-      }}
-    >
+    <Section>
       <Profile
         username={user.username}
         tag={user.tag}
@@ -23,7 +23,8 @@ export const App = () => {
         stats={user.stats}
       />
       <Statistics title="Upload stats" stats={data} />
-      {/* <Statistics stats={data} /> */}
-    </div>
+      <FriendList friends={friends} />
+      <TransactionHistory items={transactions} />
+    </Section>
   );
 };
